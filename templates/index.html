@@ -1,0 +1,44 @@
+{% include "header.html" %}
+
+{% block body %}
+
+    <div class="container">
+        <h1 class="text-center" style="font-size: 10vh">ImageReader<span style="font-size: 3vh;"></span></h1>
+        <hr>
+
+        <h2>Description:</h2>
+        <h4>This website can extract all the text saved into an image using Optical Character Recognition (OCR)</h4>
+
+        <hr>
+        <br><br>
+        <h2>Scan your own image!</h2>
+
+        <div class="text-center">
+            <form action="scanner" method=post enctype=multipart/form-data>
+                
+                        <input type="file" name="file"  id="inputGroupFile01"
+                                accept="image/*,application/pdf">
+                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    
+
+                <br>
+                <button type="submit" class="btn btn-raised btn-primary">Scan Image</button>
+            </form>
+        </div>
+    </div>
+
+<!--
+    <form action="scanner" method=post enctype=multipart/form-data>
+        <input type="file" name="file">
+        <input type="submit" value="Scan file">
+    </form>
+    <hr>
+-->
+
+{% if scanned %}
+    <hr>
+    <h1>Scanned results</h1>
+{% endif %}
+{% endblock body %}
+
+{% include "footer.html" %}
